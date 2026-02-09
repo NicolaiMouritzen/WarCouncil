@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>War Council - GM</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>War Council · GM Console</h1>
+    <div class="actions">
+      <button id="generateCouncil">Generate council</button>
+      <button class="danger" id="resetSession">Reset</button>
+    </div>
+  </header>
+  <main>
+    <section class="panel split">
+      <div>
+        <h2>Plan</h2>
+        <textarea id="planInput" rows="6" placeholder="Enter the current plan..."></textarea>
+        <div class="actions">
+          <button id="publishPlan">Publish plan</button>
+        </div>
+      </div>
+      <div>
+        <h2>GM Input</h2>
+        <textarea id="gmInput" rows="6" placeholder="Send a note to the council..."></textarea>
+        <div class="actions">
+          <button id="sendInput">Send input</button>
+        </div>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>Council Drafts</h2>
+      <div id="councilGrid" class="grid"></div>
+    </section>
+  </main>
+  <script src="/client.js"></script>
+  <script src="/gm.js"></script>
+</body>
+</html>

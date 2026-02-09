@@ -1,0 +1,34 @@
+{
+  "threats": [
+    {
+      "id": "beastmen_raid",
+      "name": "Drakwald Beastmen Raids",
+      "description": "Beastmen warbands have begun striking waystations along the Drakwald edge.",
+      "known_facts": [
+        "Three supply caravans went missing in the last fortnight.",
+        "Tracks point toward the Drakwald forest."
+      ],
+      "event_chain": [
+        "Scattered raids on isolated farms.",
+        "Waystations attacked and supply lines disrupted.",
+        "Large warband gathers for a raid on a major town.",
+        "Sustained campaign threatens regional stability."
+      ]
+    },
+    {
+      "id": "greenskin_muster",
+      "name": "Greenskin Muster",
+      "description": "Orc clans are rumored to be rallying in the Grey Mountains foothills.",
+      "known_facts": [
+        "Scout sightings report smoke signals beyond the passes.",
+        "Local militias report missing hunting parties."
+      ],
+      "event_chain": [
+        "Small warbands probe border villages.",
+        "A unified force besieges a frontier keep.",
+        "Greenskins spill into fertile valleys.",
+        "Major battle in open terrain with heavy losses."
+      ]
+    }
+  ]
+}

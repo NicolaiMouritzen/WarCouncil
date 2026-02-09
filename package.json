@@ -1,0 +1,15 @@
+{
+  "name": "war-council",
+  "version": "0.1.0",
+  "description": "War Council MVP",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "openai": "^4.83.0",
+    "uuid": "^9.0.1"
+  }
+}

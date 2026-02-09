@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>War Council - Player</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>War Council · Player View</h1>
+  </header>
+  <main>
+    <section class="panel split">
+      <div>
+        <h2>Plan</h2>
+        <textarea id="planInput" rows="6" placeholder="Enter your plan..."></textarea>
+        <div class="actions">
+          <button id="publishPlan">Publish plan</button>
+        </div>
+      </div>
+      <div>
+        <h2>Statement</h2>
+        <textarea id="statementInput" rows="6" placeholder="Share your statement. Use @Name to target a councilor."></textarea>
+        <div class="actions">
+          <button id="sendStatement">Send statement</button>
+        </div>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>Last Spoken Statements</h2>
+      <div id="councilGrid" class="grid"></div>
+    </section>
+  </main>
+  <script src="/client.js"></script>
+  <script src="/player.js"></script>
+</body>
+</html>
