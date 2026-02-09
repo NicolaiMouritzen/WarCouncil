@@ -1,0 +1,10 @@
+{
+  "id": "supreme_patrol",
+  "name": "Klara Weiss",
+  "title": "Supreme Patrol Marshal",
+  "region": "Talabecland",
+  "description": "A disciplined cavalry marshal focused on rapid response and patrols.",
+  "voice_style": "Crisp, tactical, values mobility.",
+  "public_agenda": "Keep patrols moving and intercept raids before they spread.",
+  "private_agenda": "Push for a new chain of waystations along the eastern roads."
+}

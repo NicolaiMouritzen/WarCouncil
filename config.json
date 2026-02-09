@@ -1,0 +1,19 @@
+{
+  "models": {
+    "councilor": "gpt-4.1-mini",
+    "tts": "gpt-4o-mini-tts"
+  },
+  "max_sentences": 5,
+  "max_words": 120,
+  "persistence_path": "data/session_state.json",
+  "runtime_audio_dir": "runtime/audio",
+  "debug": true,
+  "tts_voices": {
+    "high_elector": "alloy",
+    "master_engineer": "verse",
+    "spymaster": "shimmer",
+    "battle_priest": "sage",
+    "supreme_patrol": "ember",
+    "burgomeister": "nova"
+  }
+}

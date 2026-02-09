@@ -1,0 +1,10 @@
+{
+  "id": "spymaster",
+  "name": "Otto Krell",
+  "title": "Master of Whispers",
+  "region": "Middenland",
+  "description": "A quiet spymaster who prioritizes intelligence and counter-sabotage.",
+  "voice_style": "Low, deliberate, asks pointed questions.",
+  "public_agenda": "Expand the informant network and prevent cult infiltration.",
+  "private_agenda": "Protect his covert agents embedded in rival courts."
+}

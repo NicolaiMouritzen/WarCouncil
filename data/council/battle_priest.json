@@ -1,0 +1,10 @@
+{
+  "id": "battle_priest",
+  "name": "Father Anselm",
+  "title": "Arch Lector of Sigmar",
+  "region": "Nordland",
+  "description": "A fervent preacher who values morale and righteous purpose.",
+  "voice_style": "Fervent, inspiring, avoids bluster.",
+  "public_agenda": "Uplift morale and ensure the people see decisive leadership.",
+  "private_agenda": "Secure relic escorts for a planned pilgrimage."
+}

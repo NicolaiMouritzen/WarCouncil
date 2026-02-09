@@ -1,0 +1,32 @@
+{
+  "regions": ["Reikland", "Solland", "Middenland", "Nordland", "Talabecland", "Averland"],
+  "cities": [
+    {"name": "Altdorf", "region": "Reikland"},
+    {"name": "Nuln", "region": "Solland"},
+    {"name": "Middenheim", "region": "Middenland"},
+    {"name": "Salzenmund", "region": "Nordland"},
+    {"name": "Talabheim", "region": "Talabecland"},
+    {"name": "Averheim", "region": "Averland"}
+  ],
+  "routes": [
+    {"from": "Altdorf", "to": "Nuln", "days": 4},
+    {"from": "Altdorf", "to": "Middenheim", "days": 5},
+    {"from": "Altdorf", "to": "Talabheim", "days": 6},
+    {"from": "Nuln", "to": "Averheim", "days": 3},
+    {"from": "Middenheim", "to": "Salzenmund", "days": 4},
+    {"from": "Talabheim", "to": "Averheim", "days": 5}
+  ],
+  "towns": [
+    {"name": "Grunburg", "nearest_city": "Altdorf", "days_to_city": 2},
+    {"name": "Pfeildorf", "nearest_city": "Middenheim", "days_to_city": 2},
+    {"name": "Kappel", "nearest_city": "Nuln", "days_to_city": 1}
+  ],
+  "hamlets": [
+    {"name": "Fox Hollow", "nearest_town": "Grunburg", "days_to_town": 1},
+    {"name": "Mossfield", "nearest_town": "Pfeildorf", "days_to_town": 1}
+  ],
+  "notable_locations": [
+    {"name": "The Drakwald Waystation", "nearest_town": "Pfeildorf", "days_to_town": 1},
+    {"name": "Sigmar's Reach", "nearest_city": "Talabheim", "days_to_city": 2}
+  ]
+}

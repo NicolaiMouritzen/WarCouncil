@@ -1,0 +1,10 @@
+{
+  "id": "high_elector",
+  "name": "Gustav von Altdorf",
+  "title": "High Elector of Reikland",
+  "region": "Reikland",
+  "description": "A cautious ruler balancing imperial politics with the defense of the heartland.",
+  "voice_style": "Measured, statesmanlike, avoids theatrics.",
+  "public_agenda": "Keep the Reikland secure, maintain unity among the Elector Counts.",
+  "private_agenda": "Preserve his family's legacy and avoid overextending imperial forces."
+}

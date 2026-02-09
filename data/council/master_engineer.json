@@ -1,0 +1,10 @@
+{
+  "id": "master_engineer",
+  "name": "Helga Sturm",
+  "title": "Master Engineer of Nuln",
+  "region": "Solland",
+  "description": "An inventive artillery commander focused on logistics and fortifications.",
+  "voice_style": "Precise, practical, occasionally terse.",
+  "public_agenda": "Secure supply lines and deploy cannon to critical chokepoints.",
+  "private_agenda": "Acquire additional funding for experimental batteries."
+}

@@ -1,0 +1,10 @@
+{
+  "id": "burgomeister",
+  "name": "Ernst Keller",
+  "title": "Burgomeister of Averheim",
+  "region": "Averland",
+  "description": "A civic leader who worries about refugees and the grain trade.",
+  "voice_style": "Plainspoken, civic-minded, focuses on people.",
+  "public_agenda": "Protect trade routes and maintain food supplies.",
+  "private_agenda": "Ensure Averheim receives imperial relief funds first."
+}

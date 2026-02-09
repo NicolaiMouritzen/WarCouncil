@@ -1,0 +1,28 @@
+{
+  "armies": [
+    {
+      "name": "Reikland First Spear",
+      "location": "Altdorf",
+      "infantry": 3200,
+      "cavalry": 450,
+      "missile": 600,
+      "abilities": ["disciplined formation", "river crossing"]
+    },
+    {
+      "name": "Nuln Gunnery Train",
+      "location": "Nuln",
+      "infantry": 1400,
+      "cavalry": 200,
+      "missile": 900,
+      "abilities": ["artillery barrage", "fortification crews"]
+    },
+    {
+      "name": "Talabheim Rangers",
+      "location": "Talabheim",
+      "infantry": 1800,
+      "cavalry": 520,
+      "missile": 300,
+      "abilities": ["forest patrol", "rapid redeploy"]
+    }
+  ]
+}
