@@ -3,6 +3,7 @@ const {
   apiPost,
   parseTarget,
   supportDotClass,
+  supportTooltip,
   addHoverExpand
 } = window.WarCouncil;
 
@@ -28,6 +29,7 @@ const renderCouncil = () => {
     const support = document.createElement("div");
     support.className = "support";
     const supportValue = typeof councilor.support === "number" ? councilor.support : "—";
+    support.title = supportTooltip(councilor.support);
     support.innerHTML = `<span class="support-dot ${supportDotClass(councilor.support)}"></span><span>${supportValue}</span>`;
     header.appendChild(title);
     header.appendChild(support);

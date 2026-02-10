@@ -43,6 +43,28 @@ const WarCouncil = (() => {
     return "high";
   };
 
+  const supportTooltip = (support) => {
+    if (!Number.isInteger(support)) {
+      return "No support rating yet.";
+    }
+
+    const tooltipBySupport = {
+      0: "I veto this plan",
+      1: "I vehemently oppose this plan",
+      2: "I strongly oppose this plan",
+      3: "I oppose this plan",
+      4: "This is a bad plan",
+      5: "This is not a good plan",
+      6: "I cannot support this plan",
+      7: "I support this plan",
+      8: "This is a good plan",
+      9: "This is a strong plan",
+      10: "I strongly support this plan"
+    };
+
+    return tooltipBySupport[support] || "No support rating yet.";
+  };
+
   const createModal = () => {
     const backdrop = document.createElement("div");
     backdrop.className = "modal-backdrop";
@@ -91,6 +113,7 @@ const WarCouncil = (() => {
     apiPost,
     parseTarget,
     supportDotClass,
+    supportTooltip,
     createModal,
     addHoverExpand
   };
