@@ -15,6 +15,7 @@ const sendStatement = document.getElementById("sendStatement");
 
 let councilData = [];
 let planDirty = false;
+let lastUpdatedIndex = null;
 
 const renderCouncil = () => {
   councilGrid.innerHTML = "";
@@ -52,11 +53,19 @@ const renderCouncil = () => {
 
 const refreshState = async () => {
   const state = await apiGet("/api/state");
+  lastUpdatedIndex = state.updatedIndex;
   councilData = state.council;
   if (!planDirty && document.activeElement !== planInput) {
     planInput.value = state.planText || "";
   }
   renderCouncil();
+};
+
+const refreshIfUpdated = async () => {
+  const { updatedIndex } = await apiGet("/api/updated");
+  if (updatedIndex !== lastUpdatedIndex) {
+    await refreshState();
+  }
 };
 
 publishPlan.addEventListener("click", async () => {
@@ -103,5 +112,7 @@ planInput.addEventListener("keydown", (event) => {
   }
 });
 
-setInterval(refreshState, 4000);
+setInterval(() => {
+  refreshIfUpdated().catch((error) => console.error(error));
+}, 1000);
 refreshState().catch((error) => console.error(error));

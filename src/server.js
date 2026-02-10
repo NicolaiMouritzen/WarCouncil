@@ -40,6 +40,7 @@ const threats = JSON.parse(fs.readFileSync(threatsPath, "utf-8"));
 const armies = JSON.parse(fs.readFileSync(armiesPath, "utf-8"));
 
 const defaultState = () => ({
+  updatedIndex: 0,
   planText: "",
   lastInput: null,
   drafts: {},
@@ -66,6 +67,10 @@ let state = loadState();
 
 const saveState = () => {
   fs.writeFileSync(statePath, JSON.stringify(state, null, 2));
+};
+
+const bumpUpdatedIndex = () => {
+  state.updatedIndex = (state.updatedIndex || 0) + 1;
 };
 
 const publicCouncil = () =>
@@ -413,11 +418,16 @@ app.get("/api/state", (_req, res) => {
     lastSpoken: state.lastSpoken[c.id] || null
   }));
   res.json({
+    updatedIndex: state.updatedIndex || 0,
     council,
     planText: state.planText,
     lastInput: state.lastInput,
     chatCount: state.chat.length
   });
+});
+
+app.get("/api/updated", (_req, res) => {
+  res.json({ updatedIndex: state.updatedIndex || 0 });
 });
 
 app.get("/api/council", (_req, res) => {
@@ -451,6 +461,7 @@ app.get("/api/chat", (_req, res) => {
 
 app.post("/api/reset", (_req, res) => {
   state = defaultState();
+  bumpUpdatedIndex();
   saveState();
   res.json({ ok: true });
 });
@@ -462,6 +473,7 @@ app.post("/api/input", (req, res) => {
     return;
   }
   addChat(from, targetName, text);
+  bumpUpdatedIndex();
   saveState();
   res.json({ ok: true });
 });
@@ -480,6 +492,7 @@ app.post("/api/plan", (req, res) => {
     text: text || "",
     ts: new Date().toISOString()
   };
+  bumpUpdatedIndex();
   saveState();
   res.json({ ok: true });
 });
@@ -496,6 +509,7 @@ app.post("/api/response", async (req, res) => {
     const draft = { ...result, ts: new Date().toISOString() };
     state.drafts[councilorId] = draft;
     recordHistory(councilorId, { type: "draft", ...draft });
+    bumpUpdatedIndex();
     saveState();
     res.json({ draft });
   } catch (error) {
@@ -515,6 +529,7 @@ app.post("/api/commit", (req, res) => {
   state.lastSpoken[councilorId] = committed;
   state.support[councilorId] = committed.support;
   recordHistory(councilorId, { type: "commit", ...committed });
+  bumpUpdatedIndex();
   saveState();
   res.json({ committed });
 });
@@ -530,6 +545,7 @@ app.post("/api/speak", async (req, res) => {
   state.lastSpoken[councilorId] = committed;
   state.support[councilorId] = committed.support;
   recordHistory(councilorId, { type: "commit", ...committed });
+  bumpUpdatedIndex();
   saveState();
   res.json({ text: committed.speech });
 });
