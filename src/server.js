@@ -43,6 +43,7 @@ const defaultState = () => ({
   updatedIndex: 0,
   planText: "",
   lastInput: null,
+  lastPlayerStatement: "",
   drafts: {},
   lastSpoken: {},
   support: {},
@@ -422,6 +423,7 @@ app.get("/api/state", (_req, res) => {
     council,
     planText: state.planText,
     lastInput: state.lastInput,
+    lastPlayerStatement: state.lastPlayerStatement || "",
     chatCount: state.chat.length
   });
 });
@@ -473,9 +475,38 @@ app.post("/api/input", (req, res) => {
     return;
   }
   addChat(from, targetName, text);
-  bumpUpdatedIndex();
-  saveState();
-  res.json({ ok: true });
+
+  const finalize = () => {
+    bumpUpdatedIndex();
+    saveState();
+    res.json({ ok: true });
+  };
+
+  if (from !== "players") {
+    finalize();
+    return;
+  }
+
+  state.lastPlayerStatement = text;
+
+  Promise.all(
+    councilors.map(async (councilor) => {
+      const result = await runCouncilorResponse(councilor);
+      const reaction = { ...result, ts: new Date().toISOString() };
+      state.drafts[councilor.id] = reaction;
+      state.lastSpoken[councilor.id] = reaction;
+      state.support[councilor.id] = reaction.support;
+      recordHistory(councilor.id, { type: "draft", ...reaction });
+      recordHistory(councilor.id, { type: "commit", ...reaction });
+    })
+  )
+    .then(() => {
+      finalize();
+    })
+    .catch((error) => {
+      console.error("Failed generating council responses to player statement", error);
+      res.status(500).json({ error: "Failed generating council responses" });
+    });
 });
 
 app.post("/api/plan", (req, res) => {

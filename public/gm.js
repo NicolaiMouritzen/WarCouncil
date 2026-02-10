@@ -12,6 +12,7 @@ const planInput = document.getElementById("planInput");
 const gmInput = document.getElementById("gmInput");
 const publishPlan = document.getElementById("publishPlan");
 const sendInput = document.getElementById("sendInput");
+const lastPlayerStatement = document.getElementById("lastPlayerStatement");
 const generateCouncil = document.getElementById("generateCouncil");
 const resetSession = document.getElementById("resetSession");
 
@@ -114,6 +115,9 @@ const refreshState = async () => {
   councilData = state.council;
   if (!planDirty) {
     planInput.value = state.planText || "";
+  }
+  if (lastPlayerStatement) {
+    lastPlayerStatement.value = state.lastPlayerStatement || "";
   }
   renderCouncil();
 };
